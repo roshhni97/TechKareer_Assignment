@@ -13,7 +13,8 @@ import Person from "@/assets/persontick.svg";
 import Message from "@/assets/message-square-01.svg";
 import Views from "@/assets/eye.svg";
 import Delete from "@/assets/trash-03.svg";
-import { Edit } from "@/assets/";
+import Edit from "@/assets/edit-02.svg";
+import { Separator } from "./ui/separator";
 
 const dummyData = {
   jobTitle: "Senior Product Designer",
@@ -216,32 +217,37 @@ const Section = () => {
       </div>
       <div className="flex flex-col gap-6 w-1/4 pt-9 px-6">
         <div className="flex gap-4">
-          <div className="flex gap-2 px-6 py-3 rounded-md border border-[0.8px] border-orange-300 bg-orange-50">
+          <div className="flex gap-2 px-6 py-3 rounded-md  border-[0.8px] border-orange-300 bg-orange-50">
             <Image src={Delete} alt="delete" />
             <div>Delete Job</div>
           </div>
-          <div className="flex gap-2 px-6 py-3 rounded-md border-2 border-[#FED3CA] bg-[#DC4A2D]">
+          <div className="flex gap-2 px-6 py-3 rounded-md border-2 border-[#FED3CA] bg-[#DC4A2D] justify-between">
             <Image src={Edit} alt="edit" />
-            <div>Edit job</div>
+            <div> &nbsp;Edit Job &nbsp;</div>
           </div>
         </div>
-        <div>
+        <div className="flex gap-4 flex-col ">
           {ApplicantDetails.map((applicantDetail) => (
-            <div
-              key={applicantDetail.detail}
-              className="flex gap-3 items-center"
-            >
-              <div className="flex gap-1 items-center">
-                <Image
-                  src={applicantDetail.image}
-                  alt={applicantDetail.image}
-                />
-                <div className="text-[#6E6D6D] text-[14px] font-medium leading-normal">
-                  {applicantDetail.detail}
+            <div className="flex gap-4 flex-col">
+              <div
+                key={applicantDetail.detail}
+                className="flex items-center justify-between"
+              >
+                <div className="flex gap-2 items-center p-2 ">
+                  <Image
+                    src={applicantDetail.image}
+                    alt={applicantDetail.image}
+                  />
+                  <div className="text-[#6E6D6D] text-[14px] font-medium leading-normal">
+                    {applicantDetail.detail}
+                  </div>
+                </div>
+
+                <div className="p-2 text-text-5 font-general-sans text-20px font-semibold leading-normal">
+                  {applicantDetail.number}
                 </div>
               </div>
-
-              <div>{applicantDetail.number}</div>
+              <Separator className="mx-2" />
             </div>
           ))}
         </div>
