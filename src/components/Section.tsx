@@ -36,7 +36,7 @@ const Skills = ({ image, skill }: { image: string; skill: string }) => {
   return (
     <div className="flex gap-1 rounded-lg border border-[#D0D5DD] bg-white px-2 py-1 w-fit">
       <Image src={image} alt="FigmaLogo" />
-      <div>{skill}</div>
+      <div className="text-xs text-[#344054] font-medium">{skill}</div>
     </div>
   );
 };
