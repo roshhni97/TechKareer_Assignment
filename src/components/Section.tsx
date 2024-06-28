@@ -273,19 +273,15 @@ const Section = () => {
           </div>
           <div className="flex gap-2 px-6 py-3 w-full rounded-[8px] border-2 border-[#FED3CA] bg-primary items-center  justify-center cursor-pointer">
             <Image src={Edit} alt="edit" />
-            <div className="text-white text-base font-general-sans ">
-              {" "}
+            <div className="text-white text-base font-general-sans whitespace-nowrap ">
               Edit Job
             </div>
           </div>
         </div>
         <div className="flex gap-4 flex-col ">
           {ApplicantDetails.map((applicantDetail, index) => (
-            <div className="flex gap-4 flex-col">
-              <div
-                key={applicantDetail.detail}
-                className="flex items-center justify-between"
-              >
+            <div key={index} className="flex gap-4 flex-col">
+              <div className="flex items-center justify-between">
                 <div className="flex gap-2 items-center p-2 ">
                   <Image
                     src={applicantDetail.image}
