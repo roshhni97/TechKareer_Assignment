@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="py-6 px-10">
       <div className="flex items-center justify-between">
-        <div className="px-6 py-3 text-primary">Logo</div>
+        <div className="px-6 py-4 text-primary bg-[#E7E7E7]">Logo</div>
         <div className="flex gap-16 rounded-[36px] border-[0.5px] border-neutral-400 bg-white p-2">
           <SegmentControl />
         </div>

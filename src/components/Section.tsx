@@ -10,7 +10,7 @@ import Atlassian from "@/assets/atlassian.svg";
 import Markdown from "react-markdown";
 import Applicants from "@/assets/person.svg";
 import Person from "@/assets/persontick.svg";
-import Message from "@/assets/message-square-01.svg";
+import MessageSquare from "@/assets/message-square-dark.svg";
 import Views from "@/assets/eye.svg";
 import Delete from "@/assets/trash-03.svg";
 import Edit from "@/assets/edit-02.svg";
@@ -25,6 +25,11 @@ const dummyData = {
     max: 400,
   },
   skills: ["Figma", "Adobe Illustrator", "Adobe XD"],
+  jobDetails: [
+    { detail: "Preferred Language", preference: "English" },
+    { detail: "Type", preference: "Full time" },
+    { detail: "Year of Experience", preference: "3+ Years of Experience" },
+  ],
 };
 
 const Skills = ({ image, skill }: { image: string; skill: string }) => {
@@ -119,7 +124,7 @@ const ApplicantDetails = [
     number: 100,
   },
   {
-    image: Message,
+    image: MessageSquare,
     detail: "Messages",
     number: 147,
   },
@@ -129,6 +134,19 @@ const ApplicantDetails = [
     number: 20,
   },
 ];
+
+const jobDescription = {
+  responsibilities: [
+    "Handle the UI/UX research design",
+    "Work on researching the latest web applications designs & trends",
+    "Work on conceptualizing and visualizing",
+    "Work on creating graphics content and other graphic-related works",
+  ],
+  benefits: ["Health insurance", "Provident Fund"],
+  schedule: "Day shift",
+  supplementalPayTypes: ["Performance bonus", "Yearly bonus"],
+  workLocation: "In person",
+};
 
 const Section = () => {
   return (
@@ -192,7 +210,32 @@ const Section = () => {
           <div className="text-[#6E6D6D] text-[14px] font-medium leading-normal">
             About the Job
           </div>
-          <Markdown>{markdown}</Markdown>
+          <div className="overflow-hidden text-text-5 text-base font-general-sans font-medium leading-[28px]">
+            <ol type="1">
+              {jobDescription.responsibilities.map((item, index) => (
+                <li key={index}>
+                  {index + 1}. {item}
+                </li>
+              ))}
+            </ol>
+            <h2>Benefits:</h2>
+            <ul>
+              {jobDescription.benefits.map((item, index) => (
+                <li key={index}> &nbsp; • {item}</li>
+              ))}
+            </ul>
+            <h2>Schedule:</h2>
+            <p>• {jobDescription.schedule}</p>
+            <h2>Supplemental Pay Types:</h2>
+            <ul>
+              {jobDescription.supplementalPayTypes.map((item, index) => (
+                <li key={index}> &nbsp; • {item}</li>
+              ))}
+            </ul>
+            <span>Work Location: </span>
+            <span>{jobDescription.workLocation}</span>
+                
+          </div>
         </div>
         <div className="py-8 px-[100px] flex flex-col gap-4">
           <div className="flex gap-3 items-center">
@@ -215,15 +258,18 @@ const Section = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6 w-1/4 pt-9 px-6">
-        <div className="flex gap-4">
-          <div className="flex gap-2 px-6 py-3 rounded-md  border-[0.8px] border-orange-300 bg-orange-50">
+      <div className="flex flex-col gap-6 w-1/4 pt-9 px-6  border-t border-l border-gray-300 bg-gray-100 shadow-lg">
+        <div className="flex gap-4 w-full">
+          <div className="flex gap-2 px-6 py-3 w-full rounded-md  border-[0.8px] border-orange-300 bg-orange-50 cursor-pointer">
             <Image src={Delete} alt="delete" />
-            <div>Delete Job</div>
+            <div className="text-base text-[#DC4A2D]">Delete Job</div>
           </div>
-          <div className="flex gap-2 px-6 py-3 rounded-md border-2 border-[#FED3CA] bg-[#DC4A2D] justify-between">
+          <div className="flex gap-2 px-6 py-3 w-full rounded-md border-2 border-[#FED3CA] bg-[#DC4A2D] items-center  justify-center cursor-pointer">
             <Image src={Edit} alt="edit" />
-            <div> &nbsp;Edit Job &nbsp;</div>
+            <div className="text-white text-base font-general-sans ">
+              {" "}
+              Edit Job
+            </div>
           </div>
         </div>
         <div className="flex gap-4 flex-col ">
@@ -238,7 +284,7 @@ const Section = () => {
                     src={applicantDetail.image}
                     alt={applicantDetail.image}
                   />
-                  <div className="text-[#6E6D6D] text-[14px] font-medium leading-normal">
+                  <div className="text-[#4F4F4F] text-[14px] font-medium leading-normal">
                     {applicantDetail.detail}
                   </div>
                 </div>
