@@ -150,7 +150,7 @@ const jobDescription = {
 
 const Section = () => {
   return (
-    <div className="flex">
+    <div className="flex pb-10">
       <div className="w-3/4">
         <div>
           <div className="flex flex-col gap-6 px-[100px] py-9">
@@ -159,12 +159,14 @@ const Section = () => {
                 {dummyData.jobTitle}
               </div>
               <Image src={Point} alt="Point" />
-              <div className="text-[14px] font-medium text-[#888]">
+              <div className="text-[14px] font-medium text-[#888] landing-normal">
                 {dummyData.posted}
               </div>
-              <div className="flex gap-1">
-                <Image src={Point} alt="Point" />
-                <div>Open</div>
+              <div className="flex gap-1 items-center px-2 py-1 border-2 rounded-full bg-[#ECFDF3] border-[#ABEFC6]">
+                <div className="w-1 h-1 rounded-full bg-[#17B26A]"></div>
+                <div className="text-center text-xs font-medium text-[#067647]">
+                  Open
+                </div>
               </div>
             </div>
             <div className="flex gap-4 items-center">
@@ -182,6 +184,7 @@ const Section = () => {
             </div>
           </div>
         </div>
+        <Separator className="mx-2 bg-[#E7E7E7]" />
         <div className="flex mx-[100px] my-8 gap-16">
           <div className="flex flex-col gap-2">
             <div className="text-[#6E6D6D] text-[14px] font-medium leading-normal">
@@ -206,11 +209,12 @@ const Section = () => {
             />
           ))}
         </div>
+        <Separator className="mx-2 bg-[#E7E7E7]" />
         <div className="flex flex-col mx-[100px] my-8">
           <div className="text-[#6E6D6D] text-[14px] font-medium leading-normal">
             About the Job
           </div>
-          <div className="overflow-hidden text-text-5 text-base font-general-sans font-medium leading-[28px]">
+          <div className="overflow-hidden text-text-5 text-base font-general-sans font-medium leading-[28px] text-[#3D3D3D]">
             <ol type="1">
               {jobDescription.responsibilities.map((item, index) => (
                 <li key={index}>
@@ -221,15 +225,15 @@ const Section = () => {
             <h2>Benefits:</h2>
             <ul>
               {jobDescription.benefits.map((item, index) => (
-                <li key={index}> &nbsp; • {item}</li>
+                <li key={index}> &nbsp; • &nbsp; {item}</li>
               ))}
             </ul>
             <h2>Schedule:</h2>
-            <p>• {jobDescription.schedule}</p>
+            <p> &nbsp; • &nbsp; {jobDescription.schedule}</p>
             <h2>Supplemental Pay Types:</h2>
             <ul>
               {jobDescription.supplementalPayTypes.map((item, index) => (
-                <li key={index}> &nbsp; • {item}</li>
+                <li key={index}> &nbsp; • &nbsp; {item}</li>
               ))}
             </ul>
             <span>Work Location: </span>
@@ -237,6 +241,7 @@ const Section = () => {
                 
           </div>
         </div>
+        <Separator className="mx-2 bg-[#E7E7E7]" />
         <div className="py-8 px-[100px] flex flex-col gap-4">
           <div className="flex gap-3 items-center">
             <Image src={Atlassian} alt="Atlassian" />
@@ -258,13 +263,13 @@ const Section = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6 w-1/4 pt-9 px-6  border-t border-l border-gray-300 bg-gray-100 shadow-lg">
+      <div className="flex flex-col gap-6 w-1/4 pt-9 px-6  border-t border-l border-gray-300 bg-[#FCFCFC] shadow-lg">
         <div className="flex gap-4 w-full">
-          <div className="flex gap-2 px-6 py-3 w-full rounded-md  border-[0.8px] border-orange-300 bg-orange-50 cursor-pointer">
+          <div className="flex gap-2 px-6 py-3 w-full rounded-[8px]  border-[0.8px] border-primary bg-orange-50 justify-center items-center cursor-pointer">
             <Image src={Delete} alt="delete" />
             <div className="text-base text-[#DC4A2D]">Delete Job</div>
           </div>
-          <div className="flex gap-2 px-6 py-3 w-full rounded-md border-2 border-[#FED3CA] bg-[#DC4A2D] items-center  justify-center cursor-pointer">
+          <div className="flex gap-2 px-6 py-3 w-full rounded-[8px] border-2 border-[#FED3CA] bg-primary items-center  justify-center cursor-pointer">
             <Image src={Edit} alt="edit" />
             <div className="text-white text-base font-general-sans ">
               {" "}
@@ -273,7 +278,7 @@ const Section = () => {
           </div>
         </div>
         <div className="flex gap-4 flex-col ">
-          {ApplicantDetails.map((applicantDetail) => (
+          {ApplicantDetails.map((applicantDetail, index) => (
             <div className="flex gap-4 flex-col">
               <div
                 key={applicantDetail.detail}
@@ -293,7 +298,9 @@ const Section = () => {
                   {applicantDetail.number}
                 </div>
               </div>
-              <Separator className="mx-2 bg-[#E7E7E7]" />
+              {ApplicantDetails.length - 1 !== index && (
+                <Separator className="mx-2 bg-[#E7E7E7]" />
+              )}
             </div>
           ))}
         </div>

@@ -54,7 +54,7 @@ const LineTabs = ({ center, customID }: LineTabProps) => {
   return (
     <div
       className={cn(
-        "px-[100px] flex flex-wrap items-center gap-2 border border-gray-200 dark:border-gray-600",
+        "px-[100px] flex flex-wrap items-center gap-2 border bg-[#FCFCFC] border-gray-200 dark:border-gray-600",
         center && "justify-center"
       )}
     >
