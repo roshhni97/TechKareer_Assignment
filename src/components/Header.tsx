@@ -17,7 +17,10 @@ const Header = () => {
           <SegmentControl />
         </div>
         <div className="flex gap-4 p-2">
-          <Image src={Notification} alt="Notification" />
+          <div className="relative">
+            <Image src={Notification} alt="Notification" />
+            <div className="absolute h-2 w-2 rounded-full bg-primary right-0 top-0"></div>
+          </div>
           <div className="flex gap-2">
             <Image src={Logo} alt="logo" />
             <Image src={SelectArrow} alt="SelectArrow" />

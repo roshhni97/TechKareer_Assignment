@@ -267,7 +267,7 @@ const Section = () => {
         <div className="flex gap-4 w-full">
           <div className="flex gap-2 px-6 py-3 w-full rounded-[8px]  border-[0.8px] border-primary bg-orange-50 justify-center items-center cursor-pointer">
             <Image src={Delete} alt="delete" />
-            <div className="text-base text-[#DC4A2D]">Delete Job</div>
+            <div className="text-base text-[#DC4A2D] ">Delete Job</div>
           </div>
           <div className="flex gap-2 px-6 py-3 w-full rounded-[8px] border-2 border-[#FED3CA] bg-primary items-center  justify-center cursor-pointer">
             <Image src={Edit} alt="edit" />

@@ -16,7 +16,12 @@ const Tab = ({ text, selected, setSelected }: TabProps) => {
       case "Jobs":
         return <Briefcase color={selected ? "#FFFFFF" : "#B0B0B0"} />;
       case "Messages":
-        return <MessageSquare color={selected ? "#FFFFFF" : "#B0B0B0"} />;
+        return (
+          <div className="relative">
+            <div className="absolute z-20 h-2 w-2 rounded-full bg-primary right-0 top-0" />
+            <MessageSquare color={selected ? "#FFFFFF" : "#B0B0B0"} />
+          </div>
+        );
       case "Payments":
         return <CoinsHand color={selected ? "#FFFFFF" : "#B0B0B0"} />;
       default:
