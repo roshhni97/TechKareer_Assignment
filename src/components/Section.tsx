@@ -293,7 +293,7 @@ const Section = () => {
                   {applicantDetail.number}
                 </div>
               </div>
-              <Separator className="mx-2" />
+              <Separator className="mx-2 bg-[#E7E7E7]" />
             </div>
           ))}
         </div>
